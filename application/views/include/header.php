@@ -31,6 +31,7 @@
     padding:5px;
 }
     }
+    
     .mypadding{
       padding:10px;
     }
