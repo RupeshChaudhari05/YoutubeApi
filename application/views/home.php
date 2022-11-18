@@ -2,10 +2,59 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 include"include/header.php";
 ?>
+<style>
+        @-webkit-keyframes placeHolderShimmer {
+          0% {
+            background-position: -468px 0;
+          }
+          100% {
+            background-position: 468px 0;
+          }
+        }
 
+        @keyframes placeHolderShimmer {
+          0% {
+            background-position: -468px 0;
+          }
+          100% {
+            background-position: 468px 0;
+          }
+        }
+
+        .content-placeholder {
+          display: inline-block;
+          -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+          -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+          -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+          -webkit-animation-name: placeHolderShimmer;
+          animation-name: placeHolderShimmer;
+          -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+          background: #f6f7f8;
+          background: -webkit-gradient(linear, left top, right top, color-stop(8%, #eeeeee), color-stop(18%, #dddddd), color-stop(33%, #eeeeee));
+          background: -webkit-linear-gradient(left, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+          background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+          -webkit-background-size: 800px 104px;
+          background-size: 800px 104px;
+          height: inherit;
+          position: relative;
+        }
+
+        .post_data
+        {
+          padding:24px;
+          border:1px solid #f9f9f9;
+          border-radius: 5px;
+          margin-bottom: 24px;
+          box-shadow: 10px 10px 5px #eeeeee;
+        }
+        </style>
       <div class="body_contents">
         <h1 class="header">10 Things I Hate About You Leah Kate</h1>
-        <div class="d">
+        <!-- <div class="d">
           <table width="100%">
             <tbody>
               <tr>
@@ -327,7 +376,10 @@ include"include/header.php";
               </tr>
             </tbody>
           </table>
-        </div>
+        </div> -->
+        <div id="load_data"></div>
+            <div id="load_data_message"></div>
+           
         <p class="dd">We have Shared Here <b>10 Things I Hate About You Leah Kate</b> Video for You in Mp4 and Mp3 Files. You Can Easily Watch Any Youtube Videos Here Simply Click And Search for Many More Videos. In This Collection, We Shared More Than 20+ Videos Here About <b>10 Things I Hate About You Leah Kate</b>. <br /> So, Watch <b>10 Things I Hate About You Leah Kate</b> And Enjoy Amazing Videos in Mp4, HD, Mp3, 480p, 720p, 1080p, And Many More Different Formats. Same Quality as found on Websites like Tamilrockers, FilmyZilla, and MLWBD Without any Annoying Ads. </p>
         <div class="header">Trending Now</div>
         <div class="list">
@@ -349,6 +401,72 @@ include"include/header.php";
           <a href="../abhishek-rani-dailouges/index.html">Abhishek Rani Dailouges</a>
         </div>
       </div>
+      <script>
+         $(document).ready(function(){
+
+    var limit = 10;
+    var start = 0;
+    var action = 'inactive';
+
+    function lazzy_loader(limit)
+    {
+      var output = '';
+      for(var count=0; count<limit; count++)
+      {
+        output += '<div class="post_data1">';
+        output += '<p><span class="content-placeholder" style="width:100%; height: 30px;">&nbsp;</span></p>';
+        output += '<p><span class="content-placeholder" style="width:100%; height: 100px;">&nbsp;</span></p>';
+        output += '</div>';
+      }
+      $('#load_data_message').html(output);
+    }
+
+    lazzy_loader(limit);
+
+    function load_data(limit, start)
+    {
+      $.ajax({
+        url:"<?php echo base_url(); ?>welcome/fetch",
+        method:"POST",
+        data:{limit:limit, start:start},
+        cache: false,
+        success:function(data)
+        {
+          if(data == '')
+          {
+            $('#load_data_message').html('<h3>No More Result Found</h3>');
+            action = 'active';
+          }
+          else
+          {
+            $('#load_data').append(data);
+            $('#load_data_message').html("");
+            action = 'inactive';
+          }
+        }
+      })
+    }
+
+    if(action == 'inactive')
+    {
+      action = 'active';
+      load_data(limit, start);
+    }
+
+    $(window).scroll(function(){
+      if($(window).scrollTop() + $(window).height() > $("#load_data").height() && action == 'inactive')
+      {
+        lazzy_loader(limit);
+        action = 'active';
+        start = start + limit;
+        setTimeout(function(){
+          load_data(limit, start);
+        }, 1000);
+      }
+    });
+
+  });
+      </script>
 <?php
 include"include/footer.php";
 ?>

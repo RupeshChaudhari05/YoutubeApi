@@ -32,7 +32,7 @@ include"include/header.php";
             <button class="download">Download File</button>
           </div>
           <div id="wait" style="display:none; position:fixed;padding: 20px;top: 50%; left: 50%;margin-top: -50px; margin-left: -100px;border: 5px solid #129F05;background-color: #f3f3f3; -webkit-box-shadow: 1px 1px 50px 10px #000000;box-shadow: 1px 1px 70px 10px #000000;">
-            <img src="<?php echo bse_url(); ?>assets/loading.gif" width="132" height="43" />
+            <img src="<?php echo base_url(); ?>assets/loading.gif" width="132" height="43" />
           </div>
         </div>
         <script>

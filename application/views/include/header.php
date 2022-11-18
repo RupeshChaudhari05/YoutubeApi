@@ -24,18 +24,35 @@
     vertical-align: text-top;
     padding-left: 5px;
   }
+  .tags{
+      margin-right: 2px;
+    color: white !important;
+    background-color: #444;
+    padding:5px;
+}
+    }
+    .mypadding{
+      padding:10px;
+    }
   </style>
   </head>
   <body>
     <div class="header">
-      <a itemprop="url" href="../index.html" rel="Home" title="WapWon.Com" class="title" style="color:white;font-size:35px;font-weight:bold">YoutubeApi.Com</a>
+      <a itemprop="url" href="<?php echo base_url(); ?>" rel="Home" title="yyyy.Com" class="title" style="color:white;font-size:35px;font-weight:bold">YoutubeApi.Com</a>
     </div>
     <div>
       <div id="top-content">
         <div id="search-form">
-          <form action="https://wapwon.com/search" method="post" class="search-form">
-            <input type="text" name="src" class="inp-text" placeholder="Search artist / album / song title" />
+          <form action="#" method="post" class="search-form">
+            <input type="text" name="src" class="inp-text" placeholder="Search any" />
             <input type="submit" value="Search" class="inp-button" />
           </form>
         </div>
+      </div>
+      <div class="mypadding" style=" padding:10px;">
+        <?php 
+          foreach ($tags as $key => $value) {
+            echo '<a  href="'.base_url($value).'" class="tags" >'.ucwords($value).'</a>';
+          }
+        ?>
       </div>
