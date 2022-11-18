@@ -290,3 +290,23 @@
     transition: 1s;
     border-radius: 20px
   }
+
+
+
+  .overlayx {
+    position: relative
+  }
+
+  .overlayx .playWrapperx {
+    opacity: 0;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .1) url("/images/play.webp") no-repeat scroll center center/50px 50px
+  }
+
+  .thumbx .playWrapperx {
+    opacity: 1
+  }

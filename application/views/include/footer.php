@@ -12,5 +12,5 @@
       <div class="footer">YoutubeApi.Com © 2022</div>
       
   </body>
-  <script type="text/javascript" src="main.js"></script>
+  <script type="text/javascript" src="<?php echo base_url(); ?>assets/main.js"></script>
 </html>

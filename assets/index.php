@@ -6,7 +6,7 @@ error_reporting(0);
 
 $q = 'love song';
 $limit=25;
-$key = "AIzaSyArfpct_3h4U4gubXYE7Gcojvrbpv_swrI"; 
+$key = ""; 
 $cacheFolder = 'cached/';
 if(file_exists($cacheFolder.$q.".json")) {
 $data = json_decode(file_get_contents("cached/".$q.".json"));

@@ -17,6 +17,7 @@
   <meta property="og:url" content="index.html">
   <meta property="og:image" content="" />
   <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <style>
   .description{
     text-align: left;
