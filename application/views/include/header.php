@@ -31,10 +31,7 @@
     padding:5px;
 }
     }
-    
-    .mypadding{
-      padding:10px;
-    }
+
   </style>
   </head>
   <body>
@@ -44,16 +41,18 @@
     <div>
       <div id="top-content">
         <div id="search-form">
-          <form action="#" method="post" class="search-form">
+          <form action="<?php echo base_url(); ?>welcome/searchdata" method="post" class="search-form">
             <input type="text" name="src" class="inp-text" placeholder="Search any" />
             <input type="submit" value="Search" class="inp-button" />
           </form>
         </div>
       </div>
-      <div class="mypadding" style=" padding:10px;">
+      <div style=" padding:5px;">
+      <marquee>
         <?php 
-          foreach ($tags as $key => $value) {
+           foreach ($tags as $key => $value) {
             echo '<a  href="'.base_url($value).'" class="tags" >'.ucwords($value).'</a>';
           }
         ?>
+        </marquee>
       </div>
