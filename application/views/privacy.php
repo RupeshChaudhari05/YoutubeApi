@@ -6,7 +6,8 @@ include"include/header.php";
      <div class="body_contents">
          <h1 class="header">Privacy Policy</h1>
          <div class='dd'>
-         <p><strong>Your Privacy</strong><br>
+              <?php echo $setting[0]->privacy; ?>
+         <!-- <p><strong>Your Privacy</strong><br>
             Your privacy is important to us. To better protect your privacy we provide this notice explaining our online information practices and the choices you can make about the way your information is collected and used. To make this notice easy to find, we make it available on our homepage and at every point where personally identifiable information may be requested.
          </p>
          <p><strong>Google Adsense and the DoubleClick DART Cookie</strong><br>
@@ -24,7 +25,7 @@ include"include/header.php";
             The contents of this statement may be altered at any time, at our discretion.
          </p>
          <p>If you have any questions regarding the privacy policy of&nbsp;YoutubeApi.Com then you may <a href="https://YoutubeApi.com/page/contact-us/" title="contact us"><b>Contact Us</b></a>
-         </p>
+         </p> -->
       </div>
     
         </div>

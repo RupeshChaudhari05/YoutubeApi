@@ -3,9 +3,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 include"include/header.php";
 ?>
      <div class="body_contents">
-         <h1 class="header">Fresh New Videos</h1>
-         <div class="list"><a href="#">Pasoori Shae Gill</a></div>
-         <div class="list"><a href="#">Tek It Cafuneacute</a></div>
+        <?php 
+        //echo"<pre>";
+        //print_r($mydata);die;
+        foreach ($mydata as $key => $value)
+        {
+          // print_r($value);
+            echo '<h1 class="header">'.ucwords($value->title).'</h1>';
+            $v=$this->db->query("SELECT * FROM sub_category WHERE c_id='$value->id'");
+            $result=$v->result();
+            foreach ($result as $key1 => $value1)
+            {
+                echo '  <div class="list"><a href="'.base_url($value1->json).'">'.ucwords($value1->title).'</a></div>';
+            }
+        }
+        ?>
+         <!-- <h1 class="header">Fresh New Videos</h1>
+         <div class="list"><a href="#">Pasoori Shae Gill</a></div> -->
+         <!-- <div class="list"><a href="#">Tek It Cafuneacute</a></div>
          <div class="list"><a href="#">sun and moon anees</a></div>
          <div class="list"><a href="#">Sufriendo MYLOslash</a></div>
          <div class="list"><a href="#">RAVE Dxrk</a></div>
@@ -43,7 +58,7 @@ include"include/header.php";
          <div class="list"><a href="#">All For You Cian Ducrot</a></div>
          <div class="list"><a href="#">Ferrari James Hype</a></div>
          <div class="list"><a href="#">Kafile Yuumlksek Sadakat</a></div>
-         <div class="list"><a href="#">Vegas I Wanna Ride Joseline Hernandez</a></div>
+         <div class="list"><a href="#">Vegas I Wanna Ride Joseline Hernandez</a></div> -->
       
       </div>
 <?php

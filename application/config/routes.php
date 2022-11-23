@@ -53,7 +53,7 @@ $route['default_controller'] = 'welcome';
 
 $route['(:any)'] = 'welcome/categorypage/$1';
 $route['download/(:any)/(:any)'] = 'welcome/detailpage/$1/$1';
-//$route['(:any)'] = 'welcome/blogs/$1';
+
 //$route['gifts/(:any)'] = 'welcome/gifts/$1';
 
 $route['page/dmca'] = 'welcome/dmca';
@@ -62,3 +62,7 @@ $route['page/contact-us'] = 'welcome/contactus';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+
+
+$route['api/admin'] = 'admin';

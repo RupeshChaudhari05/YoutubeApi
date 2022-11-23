@@ -6,6 +6,9 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
 		$data['tags']=$this->reade_searches();
+		$d=$this->db->query("SELECT * FROM category WHERE `status`='Active'");
+	//	$res= ;
+		$data['mydata']=$d->result();
 		$this->load->view('home',$data);
 	}
 
@@ -195,16 +198,25 @@ if (file_put_contents($cacheFolder.$searchdata.".json", $json)){
 
 	public function contactus(){
 				$data['tags']=$this->reade_searches();
+			$t =$this->db->query("SELECT contactus FROM setting WHERE `status`='Active'");
+      $res= $t->result();
+      $data['setting']=$res;
 		$this->load->view('contactus',$data);
 		
 	}
 	public function privacy(){
 				$data['tags']=$this->reade_searches();
+					$t =$this->db->query("SELECT privacy FROM setting WHERE `status`='Active'");
+      $res= $t->result();
+      $data['setting']=$res;
 		$this->load->view('privacy',$data);
 		
 	}
 	public function dmca(){
 				$data['tags']=$this->reade_searches();
+					$t =$this->db->query("SELECT dmca FROM setting WHERE `status`='Active'");
+      $res= $t->result();
+      $data['setting']=$res;
 		$this->load->view('dmca',$data);
 		
 	}
